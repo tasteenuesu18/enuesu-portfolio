@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0f1c;
+  --foreground: #ededed;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Custom Palette */
+  --color-navy-900: #0a0f1c;
+  --color-navy-800: #111a2d;
+  --color-navy-700: #1c2841;
+  
+  --color-brown-500: #8d6e63;
+  --color-brown-400: #a1887f;
+  --color-brown-300: #bcaaa4;
+
+  --color-accent: #ff3d00;
+}
+
+@media (prefers-color-scheme: light) {
+  /* Enforce dark mode even in light preference for this immersive site, 
+     but define light vars just in case */
+  :root {
+    --background: #0a0f1c;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden; /* Prevent horizontal scroll from animations */
+}
