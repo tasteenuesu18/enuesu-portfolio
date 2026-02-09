@@ -5,17 +5,17 @@ const TIMELINE = [
     {
         year: "2021",
         title: "Gigworksクロスアイティ株式会社 入社",
-        description: "SESエンジニアとしてキャリアをスタート。国際派遣システムや物流システムなどの開発現場を経て、エンジニアとしての基礎を築く。詳細設計からコーディング（Front/Back）まで幅広くカバー。",
+        description: "SESとして、国際派遣や物流システムの現場へ。要件定義から設計をメインに、実装も少し。とりあえず現場で必要なことは何でもやってました。",
     },
     {
         year: "Now",
         title: "ポイントSaaSサービスに従事",
-        description: "現在は大規模ポイントSaaSシステムに従事。メガバンクや大手企業を相手に、要件定義・基本設計といった上流工程を担当。",
+        description: "大規模なポイントSaaSに関わっています。最近はメガバンクや大手企業向けの要件定義や基本設計など、上流工程がメインです。",
     },
     {
         year: "Future",
         title: "今後...",
-        description: "これまでは「めんどくさがり」なりにやってきましたが、エンジニアとしてもう少し頑張ってみようかと思案中。",
+        description: "「めんどくさい」が口癖ですが、それを理由に効率化するのは好きです。エンジニアとして、もう少し面白いことをやってみたいなと。",
     },
 ];
 
@@ -55,7 +55,7 @@ export function Profile() {
                         </p>
                         <p className="text-lg text-gray-300 leading-relaxed mt-4 font-mono">
                             エンジニアっぽいことは好きですが、強いメッセージ性とかはありません。<br />
-                            ここはそんな私の、単純な自己紹介用ポートフォリオです。
+                            ここは、単純な自己紹介用ポートフォリオです。
                         </p>
                     </div>
                 </HoloReveal>
@@ -69,18 +69,25 @@ export function Profile() {
                     <div className="relative space-y-12 pl-8 md:pl-32 border-l border-cyan-500/20 ml-4 md:ml-0">
                         {TIMELINE.map((item, i) => (
                             <HoloReveal key={item.year} delay={0.4 + i * 0.2} className="relative">
-                                {/* Year marker */}
-                                <div className="absolute -left-12 md:-left-36 top-1 flex items-center gap-4">
-                                    <span className="text-cyan-400 font-mono text-sm md:text-base bg-slate-900/80 px-2 py-1 border border-cyan-500/30 rounded">
+                                {/* Year marker - Desktop */}
+                                <div className="hidden md:flex absolute md:-left-36 top-1 items-center gap-4">
+                                    <span className="text-cyan-400 font-mono text-base bg-slate-900/80 px-2 py-1 border border-cyan-500/30 rounded">
                                         [{item.year}]
                                     </span>
                                 </div>
 
                                 {/* Connector */}
-                                <div className="absolute -left-[2.3rem] md:left-[-2.05rem] top-4 w-3 h-3 bg-slate-900 border border-cyan-400 rounded-full shadow-[0_0_8px_#22d3ee]" />
+                                <div className="absolute -left-[2.3rem] md:left-[-2.05rem] top-4 md:top-4 w-3 h-3 bg-slate-900 border border-cyan-400 rounded-full shadow-[0_0_8px_#22d3ee]" />
 
                                 {/* Content */}
                                 <div className="pl-4">
+                                    {/* Year marker - Mobile */}
+                                    <div className="flex md:hidden items-center mb-2">
+                                        <span className="text-cyan-400 font-mono text-sm bg-slate-900/80 px-2 py-1 border border-cyan-500/30 rounded">
+                                            [{item.year}]
+                                        </span>
+                                    </div>
+
                                     <h3 className="text-xl font-semibold text-white mb-2">
                                         {item.title}
                                     </h3>

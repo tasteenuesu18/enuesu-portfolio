@@ -81,7 +81,7 @@ export function Sidebar() {
 
                     <div className="w-10 h-10 rounded-full border border-cyan-500/50 shadow-[0_0_15px_rgba(34,211,238,0.3)] z-10 relative bg-slate-900 flex items-center justify-center overflow-hidden group-hover:border-cyan-400 transition-colors">
                         <Image
-                            src="/cat-mascot.jpg"
+                            src="/ns-icon.png"
                             alt="EN"
                             width={40}
                             height={40}
