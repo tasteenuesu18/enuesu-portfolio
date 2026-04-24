@@ -1,8 +1,18 @@
 "use client";
 
 import { HoloReveal } from "@/components/ui/HoloReveal";
-import { Construction } from "lucide-react";
+import { Construction, ExternalLink, Github } from "lucide-react";
 import { motion } from "framer-motion";
+
+const PROJECTS = [
+    {
+        title: "proto-agent-ns",
+        description: "AIエージェントの実装方法について学ぶためのプロトタイプ。",
+        tech: ["TypeScript", "Next.js"],
+        github: "https://github.com/tasteenuesu18/proto-agent-ns",
+        website: "https://proto-agent-ns.vercel.app",
+    }
+];
 
 export function Works() {
     return (
@@ -21,50 +31,55 @@ export function Works() {
                     </h2>
                 </HoloReveal>
 
-                {/* Coming Soon Card */}
-                <HoloReveal delay={0.2} className="w-full">
-                    <div className="flex flex-col items-center justify-center py-24 border border-cyan-500/30 bg-slate-900/60 backdrop-blur-md rounded-lg relative overflow-hidden group">
-
-                        {/* Security Pattern Background */}
-                        <div className="absolute inset-0 opacity-10"
-                            style={{ backgroundImage: 'radial-gradient(#22d3ee 1px, transparent 1px)', backgroundSize: '20px 20px' }}
-                        />
-
-                        <motion.div
-                            animate={{
-                                rotate: [0, 10, -10, 0],
-                            }}
-                            transition={{
-                                duration: 4,
-                                repeat: Infinity,
-                                repeatType: "reverse",
-                                ease: "easeInOut"
-                            }}
-                        >
-                            <Construction className="w-20 h-20 text-cyan-400/80 mb-8 drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]" />
-                        </motion.div>
-
-                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tighter">
-                            現在<span className="text-cyan-400">作成中</span>...
-                        </h3>
-
-                        <p className="text-cyan-200/60 text-center max-w-md font-mono text-sm leading-relaxed">
-                            実績は随時追加していく予定です。<br />
-                            <span className="animate-pulse">_</span>
-                        </p>
-
-                        {/* Progress Bar */}
-                        <div className="flex items-center gap-4 mt-12 w-64">
-                            <div className="h-[2px] w-full bg-cyan-900/50 relative overflow-hidden">
-                                <motion.div
-                                    className="absolute inset-0 bg-cyan-400 shadow-[0_0_10px_#22d3ee]"
-                                    initial={{ x: "-100%" }}
-                                    animate={{ x: "100%" }}
-                                    transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+                {/* Projects Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                    {PROJECTS.map((project, index) => (
+                        <HoloReveal key={index} delay={0.2 + index * 0.1} className="w-full">
+                            <div className="flex flex-col p-8 border border-cyan-500/30 bg-slate-900/60 backdrop-blur-md rounded-lg relative overflow-hidden group hover:border-cyan-400/60 transition-colors h-full">
+                                {/* Security Pattern Background */}
+                                <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity"
+                                    style={{ backgroundImage: 'radial-gradient(#22d3ee 1px, transparent 1px)', backgroundSize: '20px 20px' }}
                                 />
+
+                                <h3 className="text-2xl font-bold text-white mb-3">
+                                    {project.title}
+                                </h3>
+
+                                <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
+                                    {project.description}
+                                </p>
+
+                                <div className="flex flex-wrap gap-2 mb-8">
+                                    {project.tech.map(tech => (
+                                        <span key={tech} className="text-xs font-mono text-cyan-300 bg-cyan-950/50 px-2 py-1 rounded border border-cyan-800">
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                <div className="flex items-center gap-4 mt-auto relative z-10">
+                                    {project.github && (
+                                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                                            <Github className="w-6 h-6" />
+                                        </a>
+                                    )}
+                                    {project.website && (
+                                        <a href={project.website} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                                            <ExternalLink className="w-6 h-6" />
+                                        </a>
+                                    )}
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        </HoloReveal>
+                    ))}
+                </div>
+
+                {/* Coming Soon Indicator */}
+                <HoloReveal delay={0.4} className="flex justify-center">
+                    <p className="text-cyan-500/50 font-mono text-sm flex items-center gap-2">
+                        <span className="animate-pulse">_</span>
+                        More projects loading...
+                    </p>
                 </HoloReveal>
             </div>
         </section>
