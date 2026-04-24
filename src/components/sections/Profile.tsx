@@ -4,7 +4,7 @@ import { HoloReveal } from "@/components/ui/HoloReveal";
 const TIMELINE = [
     {
         year: "2021",
-        title: "Gigworksクロスアイティ株式会社 入社",
+        title: "中小IT企業 入社",
         description: "SESとして、国際派遣や物流システムの現場へ。要件定義から設計をメインに、実装も少し。とりあえず現場で必要なことは何でもやってました。",
     },
     {
